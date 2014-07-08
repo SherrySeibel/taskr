@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
   def index
     @task = Task.new
-    @tasks = current_user.tasks.where(completed: false)
+    @tasks = current_user.tasks.not_completed
   end
 
   def create
