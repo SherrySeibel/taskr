@@ -10,10 +10,16 @@ class TasksController < ApplicationController
     @task = current_user.tasks.new(task_params)
     @tasks = current_user.tasks
 
-    if @task.save
-      redirect_to :tasks
+    if request.xhr?
+      if @task.save
+        render @task
+      end
     else
-      render :index
+      if @task.save
+        redirect_to :tasks
+      else
+        render :index
+      end
     end
   end
 
