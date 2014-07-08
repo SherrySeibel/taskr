@@ -10,16 +10,12 @@ class TasksController < ApplicationController
     @task = current_user.tasks.new(task_params)
     @tasks = current_user.tasks
 
-    if request.xhr?
-      if @task.save
-        render @task
-      end
+    if @task.save
+      render @task
     else
-      if @task.save
-        redirect_to :tasks
-      else
-        render :index
-      end
+      render partial: "errors",
+        locals: { target: @task },
+        status: 422
     end
   end
 
