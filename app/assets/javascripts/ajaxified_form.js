@@ -5,7 +5,10 @@ $(function(){
       $("#new_task_form").serialize()
     ).done(function(html){
       $("#tasks").prepend(html);
-    }).fail(function(html){
+      $("#errors").html("");
+      $("#task_title, #task_body").val("");
+    }).fail(function(xhr){
+      var html = xhr.responseText;
       $("#errors").html(html);
     });
 
