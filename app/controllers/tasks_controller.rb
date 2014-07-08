@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
   def index
     @task = Task.new
-    @tasks = current_user.tasks.not_completed
+    @tasks = current_user.tasks.not_completed.order("created_at DESC")
   end
 
   def create

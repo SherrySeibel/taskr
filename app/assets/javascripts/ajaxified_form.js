@@ -3,8 +3,8 @@ $(function() {
     $.post(
       "/tasks",
       $("#new_task_form").serialize()
-    ).done(function(data){
-      $("ul").prepend(data);
+    ).done(function(html){
+      $("#tasks").prepend(html);
     });
 
     return false;
