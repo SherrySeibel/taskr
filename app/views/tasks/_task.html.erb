@@ -6,9 +6,9 @@
 <p><%= task.title %></p>
 <p>&mdash;<%= task.body %></p>
 
-<div id="kill">
+<div class="kill">
   <%= link_to "Delete task", "#", class: "delete" %>
-  <span class="options">
+  <span class="delete_options" visibility="hidden" >
     <%= link_to "just kidding", "#", class: "jk" %>
     <%= link_to "DELETE", task, class: "destroy", method: :delete %>
   </span>

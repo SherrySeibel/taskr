@@ -28,11 +28,9 @@ $(function(){
 
   $("#tasks").on("click", "#delete", function(event){
     var spanEl = $(event.target).parents("form");
-    $("span").click(function(){
-      $("#delete").toggle();
+    $("div").click(function(){
+      $(".kill").toggle();
     });
-
-    return false;
   });
 });
 
