@@ -14,5 +14,16 @@ $(function(){
 
     return false;
   })
+
+  $(".completed_checkbox").click(function(event){
+      var formEl = $(event.target).parents("form");
+      $.ajax({
+        url: formEl.prop("action"),
+        data: formEl.serialize(),
+        type: "PATCH"
+      }).done(function(){
+       formEl.parents("li").fadeOut();
+     });
+  });
 });
 
