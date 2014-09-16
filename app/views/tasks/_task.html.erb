@@ -1,4 +1,3 @@
-<li>
 <%= form_for task do |form| %>
   <%= form.check_box :completed, class: "completed_checkbox" %>
   <% end %>
@@ -13,5 +12,3 @@
     <%= link_to "DELETE", task, class: "destroy_task", method: :delete %>
   </span>
 </div>
-
-</li>

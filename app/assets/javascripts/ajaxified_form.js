@@ -27,10 +27,9 @@ $(function(){
   });
 
   $("#tasks").on("click", ".delete_task, .cancel_task", function(event){
-    debugger;
     $(".delete_options, .delete_task").toggle();
     var listEl = $(event.target).parents("li");
+
     return false;
   });
 });
-
