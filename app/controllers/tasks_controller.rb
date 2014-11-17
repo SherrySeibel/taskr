@@ -7,14 +7,14 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = current_user.tasks.new(task_params)
-    @tasks = current_user.tasks
+    task = current_user.tasks.new(task_params)
+    tasks = current_user.tasks
 
-    if @task.save
-      render @task
+    if task.save
+      render task
     else
       render partial: "errors",
-        locals: { target: @task },
+        locals: { target: task },
         status: 422
     end
   end
@@ -27,11 +27,16 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    task = Task.find(params[:id])
+    task.destroy
+    redirect_to root_path
+  end
+
   private
 
   def task_params
-    params.require(:task).
-      permit(
+    params.require(:task).permit(
         :body,
         :title,
         :completed,
