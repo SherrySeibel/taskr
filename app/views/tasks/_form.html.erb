@@ -1,4 +1,4 @@
-<%= form_for @task, html: { id: "new_task_form" } do |form| %>
+<%= form_for @task_display.new_task, html: { id: "new_task_form" } do |form| %>
   <div>
     <%= form.label :title %>
     <%= form.text_field :title %>
