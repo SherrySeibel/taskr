@@ -2,8 +2,7 @@ class TasksController < ApplicationController
   before_action :require_login
 
   def index
-    @task = Task.new
-    @tasks = current_user.tasks.not_completed.order("created_at DESC")
+    @task_display = Display.new(current_user)
   end
 
   def create

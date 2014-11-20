@@ -1,8 +1,7 @@
 <li>
   <%= form_for task do |form| %>
-    <%= form.check_box :completed, class: "completed_checkbox" %>
+    <p><%= form.check_box :completed, class: "completed_checkbox" %></p>
   <% end %>
-
   <p><%= task.title %></p>
   <p>&mdash;<%= task.body %></p>
 
